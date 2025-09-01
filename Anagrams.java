@@ -11,8 +11,6 @@ public class Anagrams {
     public static boolean has_anagrams(String s, String t){
         HashMap<Character, Integer> hm = new HashMap<>();
 
-        for (Character c in s)
-
         return false;
     }
 
