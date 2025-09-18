@@ -4,7 +4,7 @@ You can:
     - Insert at the beginning quickly
 The idea is to store the items into individual objects called "nodes"
 Each linked list has a head and tail
-Each node stores a reference to the next node is the list (a pointer)
+Each node stores a reference to the next node in the list (a pointer)
 
 """
 
