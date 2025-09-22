@@ -1,5 +1,56 @@
 print("hello world")
 
+
+"""
+Chapter One:
+Linked List - How to create them, 4 basic operations(creating, deleting, inserting, locating), traversal
+First Operation is append items to the list (insert)
+
+
+"""
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+#Simple class to hold our list, this class holds a reference to the very first node
+class SinglyLinkedList:
+    def __init__(self):
+        self.tail = None
+
+    def append(self, data):
+        node = Node(data) # encapsulates 'data' into the node
+        if self.tail == None:
+            self.tail = node
+        else:
+            current = self.tail
+            while current.next:
+                current = current.next
+            current.next = node
+
+    def size(self):
+        count = 0
+        current = self.tail
+        while current:
+            count += 1
+            current = current.next
+        return count
+    
+    def delete(self, data):
+        current = self.tail
+        prev = self.tail
+        while current:
+            if current.data == data:
+                if current == self.tail:
+                    self.tail = current.next
+                else:
+                    prev.next = current.next
+                self.size -= 1
+                return
+            prev = current
+            current = current.next
+            
+
 # code out the factorial algorithm
 """
 we know we need base cases
@@ -38,3 +89,5 @@ def bitStr(n, s):
     if n == 1: return s
     return [ digit + bits for digit in bitStr(1,s) for bits in bitStr(n-1,s)]
 print(bitStr(3,'abc'))
+
+

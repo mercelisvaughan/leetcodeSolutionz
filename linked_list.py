@@ -8,17 +8,51 @@ Each node stores a reference to the next node in the list (a pointer)
 
 """
 
-class ListNode:
-    def __init__(self, data, pointer = None):
-        self.data = data
-        self.pointer = pointer
+"""
+Chapter One:
+Linked List - How to create them, 4 basic operations(creating, deleting, inserting, locating), traversal
+First Operation is append items to the list (insert)
 
-class LinkedList:
+
+"""
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+#Simple class to hold our list, this class holds a reference to the very first node
+class SinglyLinkedList:
     def __init__(self):
-        self._head = None
-    def addFirst(self, item):
-        self._head = ListNode(item, self._head)
-    def removeFirst(self):
-        item = self._head.data
-        self._head = self._head.pointer
-        return item
+        self.tail = None
+
+    def append(self, data):
+        node = Node(data) # encapsulates 'data' into the node
+        if self.tail == None:
+            self.tail = node
+        else:
+            current = self.tail
+            while current.next:
+                current = current.next
+            current.next = node
+
+    def size(self):
+        count = 0
+        current = self.tail
+        while current:
+            count += 1
+            current = current.next
+        return count
+    
+    def delete(self, data):
+        current = self.tail
+        prev = self.tail
+        while current:
+            if current.data == data:
+                if current == self.tail:
+                    self.tail = current.next
+                else:
+                    prev.next = current.next
+                self.size -= 1
+                return
+            prev = current
+            current = current.next
