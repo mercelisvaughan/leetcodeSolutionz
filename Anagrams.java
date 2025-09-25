@@ -10,6 +10,7 @@ public class Anagrams {
 
     public static boolean has_anagrams(String s, String t){
         HashMap<Character, Integer> hm = new HashMap<>();
+        
 
         return false;
     }
