@@ -1,0 +1,4 @@
+This package will simply be the basic operations you should need to know to effectively solve LinkedList problems
+
+Basically you should think through the problem, then use these operations to solve the problem
+if that makes sense.. haha

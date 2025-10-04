@@ -1,7 +1,3 @@
-from typing import List
-
-
-
 def rotateArray(arr, positions):
 
     d = d % len(arr) # basically we're shifting by the remainder
