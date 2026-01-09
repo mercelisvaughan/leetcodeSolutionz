@@ -17,12 +17,36 @@ Example 2:
 Input: nums = [-1,0,1,2,3]
 Output: [0,-6,0,0,0]
 
+keep one pointer on lst[i]
+iterate other pointer to touch every index except lst[i]
+
+
+
 
 """
 
 from typing import List
 
 class Solution:
-    def product_of_array(self, array):
-        
-        return 0
+    def productExceptSelf(self, nums):
+        n = len(nums)
+        answer = [1] * n
+
+        # prefix pass
+        prefix = 1
+        for i in range(n):
+            answer[i] = prefix
+            prefix *= nums[i]
+
+        # suffix pass
+        suffix = 1
+        for i in range(n - 1, -1, -1):
+            answer[i] *= suffix
+            suffix *= nums[i]
+
+        return answer
+
+
+arr = [1,2,3,4,5]
+c = Solution()
+print(c.productExceptSelf(arr))

@@ -5,10 +5,8 @@ def valid_anagrams(s, t):
     for letter in s:
         if letter not in hm:
             hm[letter] = 1
-        hm[letter] += 1
-        print("hm[letter]: ",hm[letter])
-
-    print("end of first loop")
+        else:
+            hm[letter] += 1
 
     for letter in t:
         if letter not in hm:

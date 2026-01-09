@@ -8,3 +8,11 @@ class Solution:
             nums[i] = runningSum
         return nums
     
+    def prodOfArray(self, nums: List[int]) -> List[int]:
+        
+        
+
+
+
+        return nums
+    
