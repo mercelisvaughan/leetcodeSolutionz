@@ -1,6 +1,15 @@
+from typing import List
 
-arr = [11,2,3,4,5,6,7]
 
-ans = []
+def getConcatenation(nums: List[int]) -> List[int]:
+        n = len(nums)
+        answer = [1] * (2 * n)
 
-s = "luffy is still joyboy "
+        for i in nums:
+            answer[i] = nums[i]
+            
+        return answer
+
+nums = [1,4,1,2]
+
+print(getConcatenation(nums))
