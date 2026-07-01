@@ -1,32 +1,27 @@
-from typing import List
-
-"""
-
-The idea is to add all of the elements to the hashmap,
-the keys will be the elements,
-and the value will
-be the amount of times we see each key
-then at the end we will sort the list
-and return the k most elements from 0-k
-"""
-
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        hm = {}
-        answer = []
-        for num in nums:
-            if num not in hm:
-                hm[num] = 1
-            else:
-                hm[num] += 1
+def topKFrequent(nums, k):
+    # 1. Map each number to its frequency
+    count = {}
+    for n in nums:
+        count[n] = 1 + count.get(n, 0)
         
-
-
-        return answer
+    # 2. Create buckets where index = frequency
+    # We need len(nums) + 1 because a number could appear up to len(nums) times
+    buckets = [[] for _ in range(len(nums) + 1)]
+    
+    for n, freq in count.items():
+        buckets[freq].append(n)
+        
+    # 3. Collect the top k elements
+    res = []
+    # Loop backwards from highest frequency to lowest
+    for i in range(len(buckets) - 1, 0, -1):
+        for n in buckets[i]:
+            res.append(n)
+            if len(res) == k:
+                return res
 
     
 
-s = Solution()
 nums = [1,2,2, 2,3,3,3, 3, 4]
 k = 2
-print(s.topKFrequent(nums, k))
+print(topKFrequent(nums, k))
